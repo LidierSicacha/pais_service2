@@ -29,12 +29,16 @@ public class PaisRestController {
     }
     @GetMapping("/paises")
     public List<Pais> listar() {
-        List<Pais> paises = new ArrayList<>();
+        /*List<Pais> paises = new ArrayList<>();
         Pais pais1 = new Pais(1L, "Colombia");
         Pais pais2 = new Pais(2L, "Ecuador;");
         paises.add(pais1);
         paises.add(pais2);
-        return paises;
-
+        return paises;*/
+        return paisService.findAll();
+    }
+    @GetMapping("/paises/{id}")
+    public Pais buscarPais(@PathVariable("id")Long id){
+        return paisService.findById(id);
     }
 }
